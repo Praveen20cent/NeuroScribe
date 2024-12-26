@@ -1,0 +1,22 @@
+Instead of VMD, i have tried to use DMD (dynamic mode decomposition) , Wavelet transformation with 'db1' wavelet and EMD (empirical model decomposition).
+
+The time taken to run VMD for one set of signals (lets say 'A') was 5 mins and 9 seconds on both cloud and on local system. EMD made it much simpler by running one set of signals in just under 40 seconds. This dsiplays both the computation and time efficiency of EMD when compared to VMD.
+
+When running EMD for Machine learning models, the accuracy went up for both SVM and RandomForest. 
+SVM went from 90% to 97%
+RandomForest went from 99% to 100%.
+
+When running for Deep Learning, there were some hiccups due to the change in size of the processed data when comapred to that of VMD which has been solved. 
+VMD gave 100% accuracy and EMD also gave 100% accuracy. 
+
+EMD was run on multiple types of optimizers where it was found that EMD gave best results with the Nadam and Adam optimizers at 15 epochs each and the RSM optimizer at 10 epochs.
+
+
+Difference in running:
+
+1. Machine Learning:
+
+Instead of relying on features such as katz centrality, psd and spectral entropy, The features have been some statistical features which are: mean, variance, entropy and energy. In the same workflow as previously, after applying EMD to the signals, the features are extracted using a function which is then split into testing and training.
+
+2. Deep Learning:
+Since there is a change in the dimension when we use EMD (increase in dimension by 1), I have not directly passed the EMD data to the recurrence plot function. instead the EMD features which have been extracted using another function have been passed into the recurrence_plot function after being reshaped. Then the workflow of the project is same.

@@ -10,3 +10,60 @@ This project advances assistive technologies by introducing a practical and intu
 
 ## FLOW CHART
 ![Work Flow](https://github.com/user-attachments/assets/14804a49-4fb9-4a75-b373-08e8467633c7)
+
+
+Computational Efficiency
+
+When employing Variational Mode Decomposition (VMD) for processing a single set of signals (e.g., set 'A'), the time taken was 5 minutes and 9 seconds on both cloud and local systems. In contrast, using Empirical Mode Decomposition (EMD) reduced this processing time to under 40 seconds per signal set. This demonstrates EMD's superiority in both computational and time efficiency compared to VMD.
+
+
+Machine Learning Model Performance
+
+For machine learning models, EMD significantly improved classification accuracy:
+
+Support Vector Machine (SVM):
+Accuracy increased from 90% (with VMD) to 97% (with EMD).
+
+Random Forest:
+Accuracy improved from 99% (with VMD) to 100% (with EMD).
+
+This performance boost can be attributed to EMD’s ability to decompose signals into intrinsic mode functions (IMFs) that capture more granular features of the signal.
+
+
+Deep Learning Model Performance
+
+Initial implementation of EMD for deep learning faced challenges due to differences in the size of processed data compared to VMD. These issues were resolved by reshaping and preprocessing the data appropriately. Both methods achieved an accuracy of 100% when applied to deep learning models.
+
+Further optimizations revealed that EMD performed best with the following optimizers:
+Nadam: 100% accuracy achieved in 15 epochs.
+Adam: 100% accuracy achieved in 15 epochs.
+RMSprop: 100% accuracy achieved in 10 epochs.
+
+
+Workflow Adjustments for Machine Learning
+
+The feature extraction process for machine learning models underwent significant changes. Instead of relying on features like Katz centrality, PSD, and spectral entropy, the following statistical features were utilized:
+
+Mean
+Variance
+Entropy
+Energy
+
+
+The workflow remained consistent:
+
+EMD was applied to decompose the signals.
+Statistical features were extracted using a custom function.
+The dataset was split into training and testing sets.
+
+
+Workflow Adjustments for Deep Learning
+
+Due to the dimensional changes introduced by EMD (an increase in dimension by 1), direct use of EMD data in the recurrence plot function was not feasible. The updated process involved:
+Extracting features from EMD using a specialized function.
+Reshaping the extracted features to match the input requirements of the recurrence plot function.
+Proceeding with the same workflow as in the original VMD-based implementation.
+
+Conclusion
+
+The integration of EMD into ECG classification workflows has proven to be computationally efficient and effective in improving model performance. By tailoring feature extraction and optimizing workflows for both machine learning and deep learning, EMD not only outperformed VMD in certain metrics but also maintained comparable accuracy where VMD excelled. The adjustments made ensure the robustness and adaptability of the classification system.
