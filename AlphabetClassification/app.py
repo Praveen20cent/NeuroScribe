@@ -91,7 +91,7 @@ st.subheader("Prediction")
 st.metric(label='Predicted Alphabet', value=pred_Alpha)
 
 # Displaying Accuracy
-st.subheader("Acuuracy:")
+st.subheader("Accuracy:")
 y_pred = rf.predict(x_test)
 st.write(accuracy_score(y_pred,y_test))
 
