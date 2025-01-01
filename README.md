@@ -67,3 +67,25 @@ Proceeding with the same workflow as in the original VMD-based implementation.
 Conclusion
 
 The integration of EMD into ECG classification workflows has proven to be computationally efficient and effective in improving model performance. By tailoring feature extraction and optimizing workflows for both machine learning and deep learning, EMD not only outperformed VMD in certain metrics but also maintained comparable accuracy where VMD excelled. The adjustments made ensure the robustness and adaptability of the classification system.
+
+## EEG Streamlit Application
+We’ve introduced a **Streamlit-based EEG application** to make the NeuroScribe system more interactive and accessible.
+This app simplifies interaction with the model, offering user-friendly interface for EEG data visualization, preprocessing, and classification of alphabets.
+### Demo 
+Watch the demo of the EEG Streamlit app here:
+[EEG App Demo](https://www.dropbox.com/scl/fi/tmra9tkcjtpy88efgobpt/Appdemo.mp4?rlkey=qrrvcf42yngf1xc3kx5ncsuae&st=koxbt5e3&dl=0)
+### Steps to Run the App Locally
+```bash
+# Clone the repository
+git clone https://github.com/SaranDharshanSP/NeuroScribe.git
+
+# Navigate to the project directory
+cd NeuroScribe
+cd AlphabetClassification
+
+# Install the required dependencies
+pip install streamlit numpy pandas scikit-learn matplotlib
+
+# Run the Streamlit app
+streamlit run app.py
+
